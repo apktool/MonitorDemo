@@ -1,0 +1,30 @@
+
+email:
+  from_addr: apktoolOo@gmail.com
+  password: NjFGTQcXGyHrggoT
+  to_addr: apktoolOo@gmail.com
+  smtp_server: smtp.gmail.com
+  smtp_port: 465
+ 
+ambari:
+  master: 192.168.100.81
+
+services:
+  Mosquitto:
+    - 192.168.100.81:1883
+  Azkaban:
+    - 192.168.100.83:8081
+  Tomcat:
+    - 192.168.100.65:8080
+  MySQL:
+    - 192.168.100.81:3306
+  Redis:
+    - 192.168.100.82:6379
+  SparkR:
+    - 192.168.100.86:4040
+  SparkP:
+    - 192.168.100.82:8088
+  IDM:
+    - 192.168.100.85:8183
+  APS:
+    - 192.168.100.63:8080
