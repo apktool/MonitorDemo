@@ -4,7 +4,7 @@ from yaml import safe_load, dump
 from datetime import datetime
 
 
-def ambari_service(master_ip):
+def ambari_service(ambari):
     state_machine = {
         'INIT': 'The initial clean state after the service is first created.',
         'INSTALLING': 'In the process of installing the service.',
@@ -32,7 +32,7 @@ def ambari_service(master_ip):
     }
     msg = str()
 
-    si = service_info.ambari_service_info(master_ip)
+    si = service_info.ambari_service_info(ambari)
 
     for service, component in services_components_dict.items():
         state = si.get_services_state(service)
@@ -63,10 +63,10 @@ def port_service(services_name_prot_dict):
     return msg
 
 
-def host_info(host):
+def host_info(ambari):
     msg = str()
 
-    hi = hosts_info.hosts_info(host)
+    hi = hosts_info.hosts_info(ambari)
 
     hosts = hi.get_hosts_info()
     msg = 'There are ' + str(len(hosts)) + ' hosts\n'
@@ -81,8 +81,8 @@ def host_info(host):
 if __name__ == '__main__':
     documents = safe_load(open('config.yaml', 'r'))
 
-    msg_host = host_info(documents['ambari']['master'])
-    msg_ambari = ambari_service(documents['ambari']['master'])
+    msg_host = host_info(documents['ambari'])
+    msg_ambari = ambari_service(documents['ambari'])
     msg_port = port_service(documents['services'])
 
     if msg_ambari or msg_port:

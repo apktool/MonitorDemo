@@ -2,12 +2,14 @@
 email:
   from_addr: apktoolOo@gmail.com
   password: NjFGTQcXGyHrggoT
-  to_addr: apktoolOo@gmail.com
+  to_addr:
+      - apktoolOo@gmail.com
   smtp_server: smtp.gmail.com
   smtp_port: 465
  
 ambari:
   master: 192.168.100.81
+  cluster: IDB_for_Testing
 
 services:
   Mosquitto:

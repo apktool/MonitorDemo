@@ -5,10 +5,11 @@ s = requests.session()
 
 
 class ambari_service_info(object):
-    def __init__(self, ip):
+    def __init__(self, ambari):
         self.headers = {'X-Requested-By': 'ambari'}
-        self.ip = ip
-        self.url = 'http://' + self.ip + ':8080/api/v1/clusters/IDB_for_Testing/services/'
+        self.ip = ambari['master']
+        self.cluster = ambari['cluster']
+        self.url = 'http://' + self.ip + ':8080/api/v1/clusters/' + self.cluster + '/services/'
 
     def get_services_state(self, service_name):
         params = {'fields': 'ServiceInfo'}

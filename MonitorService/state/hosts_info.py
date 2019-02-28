@@ -3,10 +3,11 @@ import requests
 s = requests.session()
 
 class hosts_info(object):
-    def __init__(self, ip):
+    def __init__(self, ambari):
         self.headers = {'X-Requested-By': 'ambari'}
-        self.ip = ip
-        self.url = 'http://' + self.ip + ':8080/api/v1/clusters/IDB_for_Testing/hosts/'
+        self.ip = ambari['master']
+        self.cluster = ambari['cluster']
+        self.url = 'http://' + self.ip + ':8080/api/v1/clusters/' + self.cluster + '/hosts/'
 
     def get_hosts_info(self):
         url = self.url

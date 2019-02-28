@@ -22,13 +22,13 @@ class exmail(object):
 
         msg = MIMEText(message, 'plain', 'utf-8')
         msg['From'] = lam_format_addr(sender_nickname, self.from_addr)
-        msg['To'] = lam_format_addr(receiver_nickname, self.to_addr)
+        # msg['To'] = lam_format_addr(receiver_nickname, self.to_addr)
         msg['Subject'] = Header(title, 'utf-8').encode()
 
         server = smtplib.SMTP_SSL(self.smtp_server, self.smtp_port)
         server.login(self.from_addr, self.password)
 
-        server.sendmail(self.from_addr, [self.to_addr], msg.as_string())
+        server.sendmail(self.from_addr, self.to_addr, msg.as_string())
         server.quit()
 
 
