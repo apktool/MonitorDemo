@@ -1,0 +1,25 @@
+{
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "protocol":
+    {
+      "type":"http"
+    },
+
+    "links": [
+      {
+        "name": "presto_ui",
+        "label": "PRESTO UI",
+        "component_name": "PRESTO_COORDINATOR",
+        "url":"%@://%@:%@/ui/",
+        "port":{
+          "http_property": "http-server.http.port",
+          "http_default_port": "2222",
+          "regex": "^(\\d+)$",
+          "site": "config.properties"
+        }
+      }
+    ]
+  }
+}
