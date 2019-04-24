@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd $(dirname $(readlink -f "$0"))
 
@@ -18,12 +18,14 @@ command_parse()
 {
     cmd=$1
     if [ "${cmd}" = "install" ]; then
-        echo "Install MonitorService"
+        echo "Install MonitorIDMAudit"
         install
     elif [ "${cmd}" = "run" ]; then
-        echo "Run MonitorService"
+        echo "Run MonitorIDMAudit"
         run
     fi
 }
 
 command_parse $1
+
+# 30 17 * * * bash /opt/MonitorIDMAudit/shell.sh run

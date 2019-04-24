@@ -1,0 +1,31 @@
+
+mysql:
+  host: 192.168.100.81
+  user: root
+  password: password
+  db: idb
+
+
+email:
+  frontsurf:
+    from_addr: apktoolOo@gmail.com
+    password: NjFGTQcXGyHrggoT
+    to_addr:
+      - apktoolOo@gmail.com
+    smtp_server: smtp.gmail.com
+    smtp_port: 465
+  rdbtech:
+    from_addr: apktoolOo@gmail.com
+    password: NjFGTQcXGyHrggoT
+    to_addr:
+      - apktoolOo@gmail.com
+    smtp_server: smtp.gmail.com
+    smtp_port: 465
+
+
+user_list:
+  frontsurf:
+    - xinhe: '心和'
+    - hexin: '和心'
+  rdbtech:
+    - xinhe: '心和'
